@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import './styles/wave.css';
 
 @theme {
   --color-blue-pick: rgb(75, 75, 230);
@@ -19,4 +20,87 @@
   100% {
     transform: translateY(-50%);
   }
+}
+
+
+.image-container {
+    display: flex; /* 또는 grid 등으로 배치 */
+    flex-wrap: wrap; /* 여러 행성이 한 줄에 안 들어갈 경우 줄 바꿈 */
+    width: 240px; /* 예시: 4개의 행성이 한 줄에 120px씩 있다면 240px */
+    height: 240px; /* 예시: 2행 2열로 배치될 경우 */
+    /* border: 1px solid red; /* 디버깅용 */
+}
+
+.planet-section {
+    /* 이미지를 한 번만 불러옵니다. */
+    background-image: url('./assets/el-01.jpg'); /* 실제 이미지 경로를 확인해주세요. */
+    background-size: 200% 200%; /* 이미지가 가로, 세로 2x2 그리드에 있다고 가정 */
+    background-repeat: no-repeat;
+    width: 280px; /* 각 행성 섹션의 너비 */
+    height: 280px; /* 각 행성 섹션의 높이 */
+    overflow: hidden; /* 영역을 벗어나는 이미지 부분 숨기기 */
+    position: absolute;
+    /* border: 1px solid blue; /* 디버깅용 */
+}
+
+/* 각 섹션에 맞춰 이미지의 위치를 조절합니다. */
+/* 이미지가 2x2 그리드로 구성되어 있다고 가정할 때의 예시입니다. */
+/* 실제 이미지와 행성들의 위치에 따라 % 또는 px 값을 조절해야 합니다. */
+
+/* 첫 번째 행성 (왼쪽 위) */
+.planet-one {
+    background-position: 0% 0%;
+    top: 40%;
+}
+
+/* 두 번째 행성 (오른쪽 위) */
+.planet-two {
+    background-position: 100% 0%;
+    top: 40%;
+    left: 20%;
+}
+
+/* 세 번째 행성 (왼쪽 아래) */
+.planet-three {
+    background-position: 0% 100%;
+    left: 80%;
+    top: 10%;
+}
+
+/* 네 번째 행성 (오른쪽 아래) */
+.planet-four {
+    background-position: 100% 100%;
+    left: 40%;
+    top: 70%;
+}
+
+
+
+@keyframes orbit {
+  0% {
+    transform: rotate(var(--start-deg, 0deg));
+  }
+  100% {
+    transform: rotate(calc(var(--start-deg, 0deg) + 360deg));
+  }
+}
+
+.orbit-slow {
+  animation: orbit 40s linear infinite; 
+} 
+.orbit-medium {
+  animation: orbit 20s linear infinite; 
+} 
+.orbit-fast {
+  animation: orbit 10s linear infinite; 
+}
+
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
 }

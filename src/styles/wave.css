@@ -1,0 +1,29 @@
+.sun-wave::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  animation: wave 3s infinite;
+  background-color: var(--color-orange-300);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes wave {
+  0% {
+    width: 120%;
+    height: 120%;
+    opacity: 0.2;
+  }
+  
+  100% {
+    width: 180%;
+    height: 180%;
+    opacity: 0;
+  }
+}

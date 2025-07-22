@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
-import Ball from "./Ball"
 import Cover from "./Cover"
+import Inner from "./Inner"
 
 const HeroSection = () => {
   const sectionRef = useRef(null)
@@ -12,7 +12,7 @@ const HeroSection = () => {
     const clamp = (val, min, max) => Math.max(min, Math.min(val, max))
     const minRadius = 150
     if(maskRef.current) {
-      maskRef.current.style.clipPath = `circle(${minRadius}px at left 20% top 50%)`
+      maskRef.current.style.clipPath = `circle(${minRadius}px at right 10% top 50%)`
     }
 
     const onScroll = () => {
@@ -28,10 +28,10 @@ const HeroSection = () => {
 
         const progress = clamp((scrollY - sectionTop) / (sectionHeight- innerHeight), 0, 1)
 
-        const maxRadius = innerWidth
+        const maxRadius = innerWidth * 1.2
         const radius = minRadius + (maxRadius - minRadius) * progress
 
-        if(progress > 0.5) {
+        if(progress > 0.8) {
           coverRef.current.style.position = 'absolute'
           coverRef.current.style.marginTop = '-100vh'
         } else {
@@ -39,7 +39,7 @@ const HeroSection = () => {
           coverRef.current.style.marginTop = 0
         }
 
-        mask.style.clipPath = `circle(${radius}px at left 20% top 50%)`
+        mask.style.clipPath = `circle(${radius}px at right 10% top 50%)`
 
         animationFrame.current = null
       })
@@ -54,17 +54,12 @@ const HeroSection = () => {
 
   return (
     <div className="relative">
-      <section ref={sectionRef} className="w-full h-[200vh] relative top-0 bg-black text-white">
-        <Cover ref={coverRef}/>
-        <div
-          ref={maskRef}
-          className={`sticky top-0 w-screen h-screen bg-red-200`}
+      <section 
+        ref={sectionRef} 
+        className="w-full h-[240vh] relative top-0 bg-black text-white"
         >
-          <div>
-            클립패스 안에서 꾸밀 부분
-          </div>
-          <Ball />
-        </div>
+        <Cover ref={coverRef}/>
+        <Inner ref={maskRef}/>
       </section>
     </div>
   )

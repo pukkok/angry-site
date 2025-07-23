@@ -1,57 +1,66 @@
 import { useEffect, useRef, useState } from 'react'
+import constellationData from './constellationData'
+import FlipCard from './FilpCard'
 
 const HalfSection = () => {
   const [activeIndex, setActiveIndex] = useState(0)
-  const sectionRefs = [useRef(null), useRef(null), useRef(null)]
+  const sectionRefs = useRef([])
 
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5,
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = sectionRefs.findIndex(ref => ref.current === entry.target)
-          if (index !== -1) {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index)
             setActiveIndex(index)
           }
-        }
-      })
-    }, options)
+        })
+      },
+      { threshold: 0.5 }
+    )
 
-    sectionRefs.forEach(ref => {
-      if (ref.current) observer.observe(ref.current)
+    sectionRefs.current.forEach(ref => {
+      if (ref) observer.observe(ref)
     })
 
     return () => {
-      sectionRefs.forEach(ref => {
-        if (ref.current) observer.unobserve(ref.current)
+      sectionRefs.current.forEach(ref => {
+        if (ref) observer.unobserve(ref)
       })
     }
   }, [])
 
   return (
-    <section className="min-h-screen bg-black">
-      <div className="mx-auto w-3/4 text-white flex gap-8">
-        {/* 왼쪽 영역 */}
-        <div className="flex-1 flex flex-col space-y-40">
-          <div ref={sectionRefs[0]} className="h-screen bg-amber-300 text-black text-3xl flex items-center justify-center">왼쪽 파트 1</div>
-          <div ref={sectionRefs[1]} className="h-screen bg-emerald-400 text-black text-3xl flex items-center justify-center">왼쪽 파트 2</div>
-          <div ref={sectionRefs[2]} className="h-screen bg-fuchsia-500 text-black text-3xl flex items-center justify-center">왼쪽 파트 3</div>
-        </div>
+    <section className="w-full bg-black text-white">
+      {constellationData.map((c, i) => (
+        <div
+          key={c.id}
+          data-index={i}
+          ref={el => (sectionRefs.current[i] = el)}
+          className="h-screen flex flex-row items-center justify-between px-16 gap-8 border-b border-white/10"
+        >
+          {/* LEFT: 설명 영역 */}
+          <div className="w-1/3">
+            <h2 className="text-3xl font-bold text-emerald-400">{c.koreanName}</h2>
+            <p className="text-lg mt-2 text-white/80">{c.summary}</p>
+            <p className="mt-4 text-sm text-emerald-300">
+              {c.season} | {c.months.join('월, ')}월
+            </p>
+          </div>
 
-        {/* 오른쪽 영역 */}
-        <div className="flex-1 relative">
-          <div className="sticky top-0 h-screen flex items-center justify-center text-5xl font-bold">
-            {activeIndex === 0 && <p className="text-white">안녕하세요</p>}
-            {activeIndex === 1 && <p className="text-white">반갑습니다</p>}
-            {activeIndex === 2 && <p className="text-white">우주로 갑시다</p>}
+          {/* CENTER: 마크 영역 */}
+          <div className="w-1/3 flex items-center justify-center">
+            <div className="w-48 h-48 rounded-full border-2 border-emerald-400 flex items-center justify-center">
+              <span className="text-2xl text-emerald-300">{c.name}</span>
+            </div>
+          </div>
+
+          {/* RIGHT: 카드 영역 */}
+          <div className="w-1/3 flex justify-start">
+            <FlipCard flipped={activeIndex === i} name={c.name} koreanName={c.koreanName} summary={c.summary} x={c.x} y={c.y}/>
           </div>
         </div>
-      </div>
+      ))}
     </section>
   )
 }

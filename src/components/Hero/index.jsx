@@ -28,7 +28,7 @@ const HeroSection = () => {
 
         const progress = clamp((scrollY - sectionTop) / (sectionHeight- innerHeight), 0, 1)
 
-        const maxRadius = innerWidth * 1.2
+        const maxRadius = innerWidth
         const radius = minRadius + (maxRadius - minRadius) * progress
 
         if(progress > 0.8) {

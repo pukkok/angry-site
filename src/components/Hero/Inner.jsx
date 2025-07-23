@@ -7,7 +7,7 @@ const Inner = ({ref}) => {
   return (
     <div
       ref={ref}
-      className={`sticky top-0 w-screen h-screen bg-gradient-to-b from-black to-blue-900`}
+      className={`sticky top-0 w-screen h-screen bg-black`}
     >
       <video 
         className="absolute top-0 left-0 w-full h-full object-cover -z-1"
@@ -19,11 +19,11 @@ const Inner = ({ref}) => {
       />
       <div className='w-full h-full relative'>
         <div className='absolute w-full h-full flex'>
-          <article className='w-1/5 p-20 flex flex-col justify-end items-start animate-pulse'>
+          <article className='w-1/5 py-20 pl-10 flex flex-col justify-end items-start animate-pulse'>
             <h2 className='text-xl tracking-widest opacity-60'>NEXT:</h2>
-            <h2 className='text-4xl font-bold'>HORIZON</h2>
-            <h2 className='text-4xl font-bold'>TO SCROLL</h2>
-            <p className="text-sm opacity-50 mt-2">스크롤로 우주를 해방하세요</p>
+            <h2 className='text-4xl font-bold'>Y → X</h2>
+            <h2 className='text-4xl font-bold'>SCROLL SHIFT</h2>
+            <p className="text-sm opacity-50 mt-2">지금부터 가로로 펼쳐집니다</p>
           </article>
           <article className='w-5/10'>
             <OrbitSystem />

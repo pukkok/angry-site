@@ -1,6 +1,7 @@
 import spaceVideo from '@/assets/space-video.mp4'
 import OrbitSystem from "./OrbitSystem"
 import PlanetSlide from './PlanetSlide'
+import NextDescription from '../NextDescription'
 
 const Inner = ({ref}) => {
 
@@ -19,11 +20,12 @@ const Inner = ({ref}) => {
       />
       <div className='w-full h-full relative'>
         <div className='absolute w-full h-full flex'>
-          <article className='w-1/5 py-20 pl-10 flex flex-col justify-end items-start animate-pulse'>
-            <h2 className='text-xl tracking-widest opacity-60'>NEXT:</h2>
-            <h2 className='text-4xl font-bold'>Y → X</h2>
-            <h2 className='text-4xl font-bold'>SCROLL SHIFT</h2>
-            <p className="text-sm opacity-50 mt-2">지금부터 가로로 펼쳐집니다</p>
+          <article className='w-1/5 py-20 pl-10 flex flex-col justify-end items-start'>
+            <NextDescription 
+              first={'Y → X'}
+              second={'SCROLL SHIFT'}
+              description={'지금부터 가로로 펼쳐집니다'}
+            />
           </article>
           <article className='w-5/10'>
             <OrbitSystem />

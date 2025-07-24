@@ -25,7 +25,7 @@ const HorizonSection = () => {
 
   return (
     <section ref={containerRef} className="relative h-[1000vh] bg-gradient-to-br from-black to-blue-950">
-      <div className="sticky top-0 h-screen flex items-center">
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         <div
           ref={horizontalRef}
           className="flex gap-10 pl-20 pr-10 transition-transform duration-200 ease-out"

@@ -8,7 +8,7 @@ const Inner = ({ref}) => {
   return (
     <div
       ref={ref}
-      className={`sticky top-0 w-screen h-screen bg-black`}
+      className={`sticky top-0 w-screen h-screen bg-black overflow-hidden`}
     >
       <video 
         className="absolute top-0 left-0 w-full h-full object-cover -z-1"

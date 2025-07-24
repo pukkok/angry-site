@@ -1,11 +1,11 @@
 import constellationImg from '@/assets/zodiac.jpg'
 
-const FlipCard = ({ flipped, prevX, prevY, name, koreanName, x = 0, y = 0 }) => (
+const FlipCard = ({ flipped, prevX, prevY, x = 0, y = 0 }) => (
   <div 
     className="perspective-[1200px] w-[352px] h-[516px]"
   >
     <div
-      className={`relative w-full h-full z-100 transition-transform duration-700 transform-style-preserve-3d ${
+      className={`relative w-full h-full z-100 transition-transform duration-1100 transform-style-preserve-3d ${
         flipped ? 'rotate-y-180' : ''
       }`}
     >

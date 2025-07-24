@@ -12,7 +12,7 @@ const OrbitSystem = () => {
       </div>
 
       {/* 행성들 */}
-      {planetData.map((planet, index) => {
+      {planetData.map(planet => {
         const orbitSize = baseOrbit + gap * planet.orbitIndex
         return (
           <div

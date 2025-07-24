@@ -20,7 +20,7 @@ const OrbitSystem = () => {
             className={`
               absolute rounded-full border border-white/20
               aspect-square flex items-center justify-start
-              orbit-${planet.orbitSpeed}
+              ani-orbit-${planet.orbitSpeed}
             `}
             style={{
               width: `${orbitSize}px`,

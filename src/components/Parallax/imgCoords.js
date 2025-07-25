@@ -10,7 +10,7 @@ const imgCoords = [
   {
     name: '우주인1',
     img: astronaut,
-    className: 'w-32 top-[90vh] left-[90%] z-10 rotate-[-45deg]',
+    className: 'w-32 top-[90vh] left-[90%] z-10 rotate-[-55deg]',
     speedX: -0.6, speedY: -0.3
   },
   {
@@ -70,7 +70,19 @@ const imgCoords = [
   {
     name: '메테오4',
     img: meteor,
-    className: 'w-40 top-[-50vh] left-[80%] z-20 rotate-[-30deg]',
+    className: 'w-40 top-[-70vh] left-[83%] z-20 rotate-[-30deg] invert-25 hue-rotate-30',
+    speedX: -2.8, speedY: 2
+  },
+  {
+    name: '메테오5',
+    img: meteor,
+    className: 'w-100 top-[-70vh] left-[70%] z-20 rotate-[-40deg] invert-25 hue-rotate-30',
+    speedX: -3.0, speedY: 1.7
+  },
+  {
+    name: '메테오6',
+    img: meteor,
+    className: 'w-80 top-[-70vh] left-[85%] z-20 rotate-[-30deg] invert-25 hue-rotate-30',
     speedX: -2.8, speedY: 1.6
   },
 ]

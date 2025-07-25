@@ -19,7 +19,7 @@ const ParallaxSection = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="w-full h-[300vh] relative top-0 bg-white">
+    <section ref={sectionRef} className="w-full h-[350vh] relative top-0 bg-white">
       {/* 배경 */}
       <img
         src={bg}
@@ -36,7 +36,7 @@ const ParallaxSection = () => {
           />
         })}
       </div>
-      <div className='absolute bottom-0 w-full h-screen mix-blend-multiply bg-[#888] text-white z-10 flex items-center justify-center'>
+      <div className='absolute bottom-0 w-full h-screen mix-blend-multiply bg-gray-600 text-white z-10 flex items-center justify-center'>
         <h1 className='text-[280px] font-bold'>FINISH</h1>
       </div>
 

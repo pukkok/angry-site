@@ -55,9 +55,9 @@ const HalfSection = () => {
             {constellationData.length - 1 === i && (
               <div className='absolute bottom-15'>
                 <NextDescription 
-                  first={'다음 액션'}
-                  second={'들어갈 부분'}
-                  description={'다음으로 넘어가 봅시다'}
+                  first={'ACCEL FILM'}
+                  second={'USE SCROLL'}
+                  description={'스크롤로 움직임을 가속합니다'}
                 />
               </div>
             )}

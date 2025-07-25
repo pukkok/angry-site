@@ -1,5 +1,5 @@
+import AccelSection from "./components/Accel"
 import HalfSection from "./components/Half"
-import TestSection from "./components/Half/Test"
 import HeroSection from "./components/Hero"
 import HorizonSection from "./components/Horizon"
 import SlateSection from "./components/Slate"
@@ -13,8 +13,8 @@ const App = () => {
       <HorizonSection />
       <SlateSection>CONSTELLATION</SlateSection>
       <HalfSection />
-      <SlateSection>something wrong</SlateSection>
-      <TestSection />
+      <SlateSection>SPACE WORDS</SlateSection>
+      <AccelSection />
     </div>
   )
 }

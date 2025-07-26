@@ -18,7 +18,7 @@ const PlanetCanvasSlide = () => {
   const canvasSize = innerHeight
   const radius = 720
   const planetSize = 360
-  const centerX = innerWidth / 2 + planetSize / 2 + 100
+  const centerX = innerWidth / 2 + radius / 2 + innerWidth / 10 - 20
   const centerY = canvasSize / 2
 
   const duration = 2000                   // 2초 회전
@@ -105,7 +105,7 @@ const PlanetCanvasSlide = () => {
         ref={canvasRef}
         width={canvasSize}
         height={canvasSize}
-        className="absolute top-0"
+        className="absolute top-0 right-0"
       />
       <div className="text-white max-w-xs flex flex-col h-full justify-center pb-40">
         <h2 className="text-6xl font-bold">{planetData[currentIndex].name}</h2>
